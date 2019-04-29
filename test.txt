@@ -1,0 +1,7 @@
+class a
+public new c
+
+int a
+int a
+int a
+int a
