@@ -159,32 +159,49 @@ public class Controller implements ActionListener {
             for (int i = 0; i < total; i++) {
                 switch (relaciones_num.get(i)) {
                     case 1:
-                        ImageIcon icon1 = new ImageIcon("E:/Users/Braya/Documents/NetBeansProjects/uml 1/Uml/build/classes/resources/agregacion.png");
+                        ImageIcon icon1 = new ImageIcon("E:/Users/Braya/Documents/NetBeansProjects/uml1/src/resources/agregacion.png");
                         Image scaleImage1 = icon1.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
                         icon1.setImage(scaleImage1);
                         vista.titutlo.add(new JLabel("     Agregacion"));
                         vista.imagenes.add(new JLabel(icon1));
                         break;
                     case 2:
-                        ImageIcon icon2 = new ImageIcon("E:/Users/Braya/Documents/NetBeansProjects/uml 1/Uml/build/classes/resources/herencia.png");
+                        ImageIcon icon2 = new ImageIcon("E:/Users/Braya/Documents/NetBeansProjects/uml1/src/resources/herencia.png");
                         Image scaleImage2 = icon2.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
                         icon2.setImage(scaleImage2);
                         vista.titutlo.add(new JLabel("     Herencia"));
                         vista.imagenes.add(new JLabel(icon2));
                         break;
                     case 3:
-                        ImageIcon icon3 = new ImageIcon("E:/Users/Braya/Documents/NetBeansProjects/uml 1/Uml/build/classes/resources/implementacion.png");
+                        ImageIcon icon3 = new ImageIcon("E:/Users/Braya/Documents/NetBeansProjects/uml1/src/resources/implementacion.png");
                         Image scaleImage3 = icon3.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
                         icon3.setImage(scaleImage3);
                         vista.titutlo.add(new JLabel(" Implementacion"));
                         vista.imagenes.add(new JLabel(icon3));
                         break;
                     case 0:
-                        ImageIcon icon = new ImageIcon("E:/Users/Braya/Documents/NetBeansProjects/uml 1/Uml/build/classes/resources/compocision.png");
+                        ImageIcon icon = new ImageIcon("E:/Users/Braya/Documents/NetBeansProjects/uml1/src/resources/compocision.png");
                         Image scaleImage = icon.getImage().getScaledInstance(100, 100, Image.SCALE_DEFAULT);
                         icon.setImage(scaleImage);
                         vista.titutlo.add(new JLabel("   Compocision"));
                         vista.imagenes.add(new JLabel(icon));
+                        break;
+                }
+
+            }
+            for (int i = 0; i < total; i++) {
+                switch (relaciones_num.get(i)) {
+                    case 1:
+                        vista.vista_cardi.add(new JLabel("  0-------------------* "));
+                        break;
+                    case 2:
+                        vista.vista_cardi.add(new JLabel("false_bitch_jerry}_is_gay"));
+                        break;
+                    case 3:
+                        vista.vista_cardi.add(new JLabel("false_bitch_jerry}_is_gay"));
+                        break;
+                    case 0:
+                        vista.vista_cardi.add(new JLabel("  0-------------------1 "));
                         break;
                 }
 

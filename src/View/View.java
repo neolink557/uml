@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -62,6 +63,7 @@ public class View extends JFrame {
     public ArrayList<JPanel> vista_card= new ArrayList<>();
     public ArrayList<JPanel> vista2 = new ArrayList<>();
     public ArrayList<JLabel> vista2_card = new ArrayList<>();
+    public ArrayList<JLabel> vista_cardi = new ArrayList<>();
     public ArrayList<JPanel> vista3 = new ArrayList<>();
     public ArrayList<JLabel> vista3_card = new ArrayList<>();
     public ArrayList<JTextArea> clases = new ArrayList<>();
@@ -76,9 +78,11 @@ public class View extends JFrame {
     public ArrayList<ArrayList<JLabel>> vista_var_b = new ArrayList<>();
     public ArrayList<JLabel> imagenes = new ArrayList<>();
     public ArrayList<JLabel> titutlo = new ArrayList<>();
+    public ScrollPane sc = new ScrollPane();
     int ultimo ;
     int ultimo_cardinal;
     int penultimo;
+    
     Color color = new Color(193, 23, 88);
     Color color_header = new Color(193, 23, 88);
     int numero;
@@ -109,6 +113,7 @@ public class View extends JFrame {
 
     public void mostrar() {
         setSize(1500, 1000);
+        sc.setBounds(0, 0, 1500, 1000);
         setLocationRelativeTo(null);
         for (int i = 0; i < clases.size(); i++) {
             variables.get(i).setBounds(250, 30 + (150 * i), 200, 100);
@@ -122,7 +127,7 @@ public class View extends JFrame {
         enviar.setBounds(30, 150 + (150 * (clases.size() - 1)), 100, 50);
         añadir.setBounds(150, 150 + (150 * (clases.size() - 1)), 100, 50);
         añadirHerencia.setBounds(270, 150 + (150 * (clases.size() - 1)), 100, 50);
-        setContentPane(vista1);
+        setContentPane(sc);
         vista1.updateUI();
         vista1.repaint();
         
@@ -163,7 +168,9 @@ public class View extends JFrame {
                 vista.get(i).add(vista2.get(i));
                 vista.get(i).add(vista3.get(i));
                 vista.get(i).setBounds(800, 220 * i, 100, 200);
+                
                 vista1.add(vista.get(i));
+                sc.add(vista1);
             }
         }
     }
@@ -175,11 +182,19 @@ public class View extends JFrame {
                 saveImage(i);
                 vista_card.add(new JPanel());
                 vista_card.get(i).setLayout(null);
-                ImageIcon icon1 = new ImageIcon("E:/Users/Braya/Documents/NetBeansProjects/uml 1/Uml/saveb"+i+".jpeg");
+                ImageIcon icon1 = new ImageIcon("E:/Users/Braya/Documents/NetBeansProjects/uml1/saveb"+i+".jpeg");
                 vista3_card.add(new JLabel(icon1));
                 vista3_card.get(i).setBounds(200, 0, 100, icon1.getIconHeight());
-                ImageIcon icon2 = new ImageIcon("E:/Users/Braya/Documents/NetBeansProjects/uml 1/Uml/savea"+i+".jpeg");
+                ImageIcon icon2 = new ImageIcon("E:/Users/Braya/Documents/NetBeansProjects/uml1/savea"+i+".jpeg");
                 vista2_card.add(new JLabel(icon2));
+                if (Objects.equals(vista_cardi.get(i).getText(), "false_bitch_jerry}_is_gay")) {
+                    
+                }else
+                {
+                    vista_cardi.get(i).setBounds(100, 0, 100, 50);
+                    System.out.println("sdsddsdsdssdsdsdfww.View.cardinalidad()");
+                }
+                
                 vista2_card.get(i).setBounds(0, 0, 100, icon2.getIconHeight());
                 if(i==0)
                 { 
@@ -197,7 +212,9 @@ public class View extends JFrame {
                 ultimo_cardinal+=(Math.max(icon2.getIconHeight(), icon1.getIconHeight())+50)-165;
                 vista_card.get(i).add(vista2_card.get(i));
                 vista_card.get(i).add(vista3_card.get(i));
+                vista_card.get(i).add(vista_cardi.get(i));
                 vista1.add(vista_card.get(i));
+                
                 System.out.println("1"+icon1.getIconHeight());
                 System.out.println("2"+icon2.getIconHeight());
                 System.out.println("View.View.cardinalidad()"+Math.max(icon2.getIconHeight(), icon1.getIconHeight()));
