@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Controller.clas;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -12,7 +13,7 @@ import java.util.Objects;
  *
  * @author Braya
  */
-public class Clase {
+public class Clase implements clas{
 
     private String name;
     private String[] variables;//contiene cada una de las variables
@@ -36,6 +37,7 @@ public class Clase {
 
     }
 
+    @Override
     public void Run(String variables, String clas) {
         this.clases_puras = clas;
         this.variables_puras = variables;
@@ -43,6 +45,7 @@ public class Clase {
         Analizar_palabras_clases();
     }
 
+    @Override
     public void HacerSplit() {
         variables = variables_puras.split("\n");
         clas = clases_puras.split("\n");
@@ -55,6 +58,7 @@ public class Clase {
         }
     }
 
+    @Override
     public void Analizar_palabras_clases() {
         if (Objects.equals(clases_partidas.get(0)[0], "class") || Objects.equals(clases_partidas.get(0)[0], "interface")) {
             name = clas[0];
@@ -78,6 +82,7 @@ public class Clase {
 
     }
 
+    @Override
     public void hallar_clases(Clase clase) {
         for (int i = 1; i < clases_partidas.size(); i++) {
             if (tipo.get(i - 1) == tipos.clase) {
@@ -119,12 +124,14 @@ public class Clase {
 
     }
 
+    @Override
     public String[] split_herencia(String g) {
         String[] herencia;
         herencia = g.split(" ");
         return herencia;
     }
 
+    @Override
     public void hallar_herencias(Clase clase, String a, String b, String type) {
         boolean es_a = false;
         boolean es_b = false;
@@ -156,34 +163,42 @@ public class Clase {
         return tipo;
     }
 
+    @Override
     public ArrayList<String[]> getClases_partidas() {
         return clases_partidas;
     }
 
+    @Override
     public ArrayList<Integer> getNumero_relaciones() {
         return numero_relaciones;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public ArrayList<String> getClases_relaciones() {
         return clases_relaciones;
     }
 
+    @Override
     public String[] getVariables() {
         return variables;
     }
 
+    @Override
     public ArrayList<Integer> getTotal_var() {
         return total_var;
     }
 
+    @Override
     public ArrayList<String> getClases_metodos() {
         return clases_metodos;
     }
 
+    @Override
     public ArrayList<String> getClases() {
         return clases;
     }
